@@ -1,0 +1,59 @@
+
+<div class="example" *ngIf="snippets$ | async as snippetData">
+  <div class="example-header">
+    <h3>Types</h3>
+  </div>
+  <div class="example-desc">
+    <span>Types - Basics</span>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false" style="margin: 15px;">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            1. Types - Basics
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>desc ..
+        </p>
+        <pre><p [innerHTML]="snippetData.types1 | sanitize"></p></pre>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </div>
+  <div class="example-desc">
+    <span>Types - Generics</span>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false" style="margin: 15px" [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            1. Types - Generics
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>desc ..
+        </p>
+        <div class="code-snippet-area">
+          <p>Very basic example</p>
+          <p [innerHTML]="snippetData.generics1 | sanitize"></p>
+        </div>
+        <div class="code-snippet-area">
+          <p>Simple example of benefits</p>
+          <p [innerHTML]="snippetData.generics3 | sanitize"></p>
+        </div>
+        <div class="code-snippet-area">
+          <p>Example of two generic types</p>
+          <p [innerHTML]="snippetData.generics2 | sanitize"></p>
+        </div>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </div>
+
+</div>
+

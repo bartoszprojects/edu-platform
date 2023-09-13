@@ -1,0 +1,36 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+body, a, p {
+  text-decoration: none;
+  font-size: 14px;
+  color: black;
+  font-family: system-ui;
+}
+
+li.active-link {
+  background-color: #8096ab;
+}
+li.active-link a {
+  color: white;
+}
+
+.example {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+  background: #f3f3f4;
+  border-radius: 10px;
+  min-height: 25vh;
+}
+
+.code-snippet-area {
+  padding: 20px 40px 20px 40px;
+  background: #f3f3f4;
+  border-radius: 10px;
+  margin: 15px;
+}
+.code-snippet-area .code-snippet {
+  margin: 15px 0;
+}
+
+/*# sourceMappingURL=styles.css.map */

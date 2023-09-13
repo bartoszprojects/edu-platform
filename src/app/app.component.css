@@ -1,0 +1,32 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  background: #f1f1f4;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px 0 #bdbdbd;
+}
+#container nav {
+  display: flex;
+}
+#container nav ul {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  list-style-type: none;
+}
+#container nav ul li {
+  padding: 15px;
+  border-radius: 10px;
+  margin-left: 15px;
+}
+#container .content {
+  padding: 20px;
+  margin: 20px;
+  background: white;
+  border-radius: 10px;
+  min-height: 25vh;
+}
+
+/*# sourceMappingURL=app.component.css.map */
