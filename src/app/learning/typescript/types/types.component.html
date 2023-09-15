@@ -27,7 +27,7 @@
     <span>Types - Generics</span>
     <mat-accordion>
       <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false" style="margin: 15px" [expanded]="true">
+                           (closed)="panelOpenState = false" style="margin: 15px" [expanded]="false">
         <mat-expansion-panel-header>
           <mat-panel-title>
             1. Types - Generics
@@ -38,8 +38,45 @@
         <p>desc ..
         </p>
         <div class="code-snippet-area">
-          <p>Very basic example</p>
-          <p [innerHTML]="snippetData.generics1 | sanitize"></p>
+
+          <mat-tab-group>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">code</mat-icon>
+                Code Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+                <p>Very basic example</p>
+                <p [innerHTML]="snippetData.generics1 | sanitize"></p>
+              </div>
+
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">image</mat-icon>
+                Image Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+              </div>
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">video_library</mat-icon>
+                Video Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+
+                <video controls="controls" width="800" height="600" name="Video Name">
+                  <source src="/assets/videos/generic-types1.mov">
+                </video>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+
+
+
         </div>
         <div class="code-snippet-area">
           <p>Simple example of benefits</p>
@@ -54,6 +91,65 @@
 
     </mat-accordion>
   </div>
+  <div class="example-desc">
+    <span>Types - Util Types</span>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false" style="margin: 15px" [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            1. Record
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>desc ..
+        </p>
+        <div class="code-snippet-area">
+
+          <mat-tab-group>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">code</mat-icon>
+                Code Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+                <p>Very basic example</p>
+                <p [innerHTML]="snippetData | sanitize"></p>
+              </div>
+
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">image</mat-icon>
+                Image Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+              </div>
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">video_library</mat-icon>
+                Video Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+
+                <video controls="controls" width="800" height="600" name="Video Name">
+                  <source src="">
+                </video>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+
+        </div>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </div>
 
 </div>
+
 

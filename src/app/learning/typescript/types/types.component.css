@@ -1,3 +1,11 @@
+.mat-expansion-panel {
+  box-shadow: none !important;
+  border: 1px solid #8096ab;
+  background: white;
+}
 
+::ng-deep.mat-mdc-tab-header {
+  background-color: rgba(64, 80, 181, 0.0705882353) !important;
+}
 
 /*# sourceMappingURL=types.component.css.map */

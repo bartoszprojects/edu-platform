@@ -9,6 +9,8 @@ import { BasicsComponent } from './basics/basics.component';
 import { MatExpansionModule } from "@angular/material/expansion";
 import {AppModule} from "../../app.module";
 import {PipesModule} from "../../pipes/pipes.module";
+import {MatIconModule} from "@angular/material/icon";
+import {MatTabsModule} from "@angular/material/tabs";
 
 const routes: Routes = [
     { path: '', component: TypescriptComponent,
@@ -36,6 +38,8 @@ const routes: Routes = [
     RouterOutlet,
     RouterModule.forChild(routes),
     MatExpansionModule,
+    MatIconModule,
+    MatTabsModule,
     PipesModule
   ]
 })

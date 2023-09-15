@@ -29,6 +29,12 @@ li.active-link a {
   border-radius: 10px;
   margin: 15px;
 }
+.code-snippet-area .code-tab-icon {
+  margin-right: 10px;
+}
+.code-snippet-area .code-snippet-area-content {
+  padding: 25px;
+}
 .code-snippet-area .code-snippet {
   margin: 15px 0;
 }
