@@ -168,7 +168,7 @@ export class TypesComponent implements OnInit {
                 const myVariable11: getArray5Literals = "PL"
 
           // example of READONLY
-    
+
                 let myString12 = "myString12" // Type: string
                 let myString13 = "myString13"  as const // Type: (readonly "myString12")
                 // myString13 = "changed" // you cannot change this var because it is readonly because of 'as const'
@@ -344,30 +344,81 @@ export class TypesComponent implements OnInit {
     // ------------------------------------------------------------------
     // UTILITY TYPES
 
-    // ------------------------------------------------------------------
-    // typeOf operator
+        // ------------------------------------------------------------------
+        // RECORD Type - Record<Keys, Type>
+        // If we want to create structure of keys and values of our objects we should use Record Type
+
+            // -------------------------------
+
+                type keysUnion = 'value1' | 'value2' | 'anotherValue'
+
+                // Record<( literal keys from keysUnion), ( type number for all values of object) >
+                type keyValueScheme = Record<keysUnion, number>
+
+                const myObj1: keyValueScheme = { 'value1': 1, 'value2': 2, 'anotherValue': 3}
+
+            // -------------------------------
+
+                interface myInterface1 { surname: string, age: number, friends: string[] }
+                type unionKeys = "John" | "Patrick" | "Eva"
+
+                type fullScheme = Record<unionKeys, myInterface1>
+
+                const myObj2: fullScheme = {
+                  "John": { surname : 'surname1', age: 20, friends: []},
+                  "Patrick": { surname : 'surname2', age: 30, friends: []},
+                  "Eva": { surname : 'surname3', age: 40, friends: []}
+                }
+
+        // ------------------------------------------------------------------
+        // PICK Type - Pick<Type, Keys>
+        // If we want to get some of (keys and their values types) from object we should use Pick Type
+
+            // -------------------------------
+
+                interface myInterface2 { name: string, surname: string, country: string, money: number }
+
+                // we are getting only (name: string, money: number) from interface
+                type getSomeOfInterfaceKeys = Pick<myInterface2, "name" | "money">
+
+                const myObj3: getSomeOfInterfaceKeys = { name: "name1", money: 12 }
 
 
-    // ------------------------------------------------------------------
-    // keyOf operator
+        // ------------------------------------------------------------------
+        // OMIT Type - Omit<Type, Keys>
+        // If we want to omit some of (keys and their values types) from object then we should use Omit Type
 
-    // ------------------------------------------------------------------
-    // Record Type
-    // If we want to create structure not only for values of object but also for the keys - Record type is for that!
+            // -------------------------------
+            // type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
-    type keysStructure = 'name' | 'surname';
+                interface myInterface3 { name: string, surname: string, country: string, money: number }
 
-    // Record <firstVal=we define keys scheme, secondVal=we define values scheme>
-    const obj1: Record<keysStructure, string> = { 'name': 'name1', 'surname': 'surname1'}
-    console.log('typesUtilsTypes1: ', obj1)
+                // we are excluding some of (keys, values) from interface
+                type omitSomeOfInterfaceKeys = Omit<myInterface3, "name" | "surname" | "money">
 
-    // -------------------------------
-
+                const myObj4: omitSomeOfInterfaceKeys = { country: 'country1' }
 
 
+        // ------------------------------------------------------------------
+        // PARTIAL Type - Partial<Type>
+        // If we want to make all of (keys, values) optional then we should use Partial Type
 
+            // -------------------------------
+            // type Partial<T> = { [P in keyof T]?: T[P]; };
 
+                interface myInterface4 {
+                  name?: string,
+                  surname: string,
+                  country: string,
+                  money: number
+                }
 
+                // there we set all interface properties as optional. We don't have to use '?' operator inside interface or object
+                // (name?: string). Sometimes this is not good to use '?' operator inside reusable interface. For one purpose
+                // property should be optional, for another purpose it should be required. Partial Type is the best for this
+                type makeAllOptional = Partial<myInterface4>
+
+                const myObj5: makeAllOptional = { money: 15 }
   }
 
   typesForFunctions1() {
@@ -486,6 +537,15 @@ export class TypesComponent implements OnInit {
 
     // ------------------------------------------------------------------
 
+  }
+
+  typesGenerics0() {
+
+    // ------------------------------------------------------------------
+    // GENERIC Types
+    //
+
+        // -------------------------------
   }
 
 }
