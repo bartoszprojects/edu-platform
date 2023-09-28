@@ -7,6 +7,7 @@ const appRoutes: Routes = [
   { path: 'angular', loadChildren: () => import('./learning/angular/angular.module').then(m => m.AngularModule) },
   { path: 'functions', loadChildren: () => import('./learning/functions/functions.module').then(m => m.FunctionsModule) },
   { path: 'typescript', loadChildren: () => import('./learning/typescript/typescript.module').then(m => m.TypescriptModule) },
+  { path: 'rxjs', loadChildren: () => import('./learning/rxjs/rxjs.module').then(m => m.RxjsModule) },
 
 ];
 @NgModule({
