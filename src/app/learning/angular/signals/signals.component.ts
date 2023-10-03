@@ -1,10 +1,30 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-signals',
   templateUrl: './signals.component.html',
   styleUrls: ['./signals.component.sass']
 })
-export class SignalsComponent {
+export class SignalsComponent implements OnInit {
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    this.basicsAngularSignals0();
+  }
+
+  basicsAngularSignals0(): void {
+    // Angular Signals
+    //
+
+
+    //--------------------------------------------------
+
+
+
+  }
+
 
 }

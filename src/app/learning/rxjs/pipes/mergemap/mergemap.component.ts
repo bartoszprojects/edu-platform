@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {
+  concatMap, exhaustMap,
   from,
   fromEvent,
   interval,
@@ -14,6 +15,8 @@ import {
   tap
 } from "rxjs";
 
+interface myInterface1 { [key: string]: number[] }
+
 @Component({
   selector: 'app-mergemap',
   templateUrl: './mergemap.component.html',
@@ -22,7 +25,7 @@ import {
 export class MergemapComponent implements OnInit {
   myFunc1 = () => {};
   index: number = 0;
-  myObj1: { [key: string]: any[] } = {};
+  myObj1: myInterface1 = {};
   myStream1: Subscription | undefined
   constructor() {
 
@@ -53,28 +56,24 @@ export class MergemapComponent implements OnInit {
 
     const mySubj1: Subject<string> = new Subject()
     const myInterval1: Observable<number> = interval(200).pipe(take(15))
-    
+
     this.myFunc1 = () => {
       this.index++
-      this.myObj1[`Observable${this.index}`] = []
-      return mySubj1.next(`Observable${this.index}`)
+      let columnName = `Observable${this.index}`
+      this.myObj1[columnName] = []
+      return mySubj1.next(columnName)
     }
 
-    this.myStream1 = mySubj1.pipe(switchMap(
+    this.myStream1 = mySubj1.pipe(exhaustMap(
       (e: string) => myInterval1,
-      (valueFromSubject: string, valueFromInterval: number) => {
-        return {
-          column: valueFromSubject,
-          value: valueFromInterval,
-        };
-      }
+      (valueFromSubject: string, valueFromInterval: number) =>
+        ({ column: valueFromSubject, value: valueFromInterval })
     ))
-    .subscribe((res: any): void => {
-      this.myObj1[res?.column].push(res.value)
+    .subscribe((res): void => {
+      this.myObj1[res.column].push(res.value)
       console.log('res: ', res)
       console.log('myObj1: ', this.myObj1)
     })
-
   }
 
   ngOnDestroy() {

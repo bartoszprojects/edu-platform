@@ -12,6 +12,9 @@ import { MergemapComponent } from './pipes/mergemap/mergemap.component';
 import { WithlatestfromComponent } from './pipes/withlatestfrom/withlatestfrom.component';
 import { CombineallComponent } from './pipes/combineall/combineall.component';
 import { CombinelatestComponent } from './pipes/combinelatest/combinelatest.component';
+import { ZipComponent } from './pipes/zip/zip.component';
+import { ConcatmapComponent } from './pipes/concatmap/concatmap.component';
+import { ExhaustmapComponent } from './pipes/exhaustmap/exhaustmap.component';
 
 
 const routes: Routes = [
@@ -24,10 +27,12 @@ const routes: Routes = [
           { path: 'map', component: MapComponent },
           { path: 'mergemap', component: MergemapComponent },
           { path: 'switchmap', component: SwitchmapComponent },
-          { path: 'combinelatest', component: CombineallComponent },
+          { path: 'concatmap', component: ConcatmapComponent },
+          { path: 'exhaustmap', component: ExhaustmapComponent },
+          { path: 'combinelatest', component: CombinelatestComponent },
           { path: 'combineall', component: CombineallComponent },
           { path: 'withlatestfrom', component: WithlatestfromComponent },
-
+          { path: 'zip', component: ZipComponent },
         ] },
 
     ]
@@ -46,7 +51,10 @@ const routes: Routes = [
     MergemapComponent,
     WithlatestfromComponent,
     CombineallComponent,
-    CombinelatestComponent
+    CombinelatestComponent,
+    ZipComponent,
+    ConcatmapComponent,
+    ExhaustmapComponent
   ],
   imports: [
     CommonModule,
