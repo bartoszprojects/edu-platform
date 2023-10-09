@@ -1,1 +1,21 @@
-<p>observable works!</p>
+<div class="example">
+<button (click)="func1()" class="bl-def-button">func1()</button>
+</div>
+
+<div class="example">
+  <div class="example-header">
+    <h3>Observables - HOT & COLD</h3>
+  </div>
+  <div class="example-desc">
+    <span>This is example how important is to have knowledge about Hot and Cold Observables.</span>
+  </div>
+
+  <div class="example">
+<ul>
+  <p>count: {{ (dollarVar1$ | async)?.length }}</p>
+  <li *ngFor="let element of dollarVar1$ | async">
+    <a> {{ element.name }} </a>
+  </li>
+</ul>
+  </div>
+</div>

@@ -15,14 +15,23 @@ import { CombinelatestComponent } from './pipes/combinelatest/combinelatest.comp
 import { ZipComponent } from './pipes/zip/zip.component';
 import { ConcatmapComponent } from './pipes/concatmap/concatmap.component';
 import { ExhaustmapComponent } from './pipes/exhaustmap/exhaustmap.component';
-
+import { RegularsubjectComponent } from './subject/regularsubject/regularsubject.component';
+import { BehavioursubjectComponent } from './subject/behavioursubject/behavioursubject.component';
+import { ReplaysubjectComponent } from './subject/replaysubject/replaysubject.component';
+import { AsyncsubjectComponent } from './subject/asyncsubject/asyncsubject.component';
 
 const routes: Routes = [
   { path: '', component: RxjsComponent,
     children: [
       { path: 'basics', component: BasicsComponent },
       { path: 'observable', component: ObservableComponent },
-      { path: 'subject', component: SubjectComponent },
+      { path: 'subject', component: SubjectComponent , children: [
+          { path: 'regularsubject', component: RegularsubjectComponent },
+          { path: 'behavioursubject', component: BehavioursubjectComponent },
+          { path: 'replaysubject', component: ReplaysubjectComponent },
+          { path: 'asyncsubject', component: AsyncsubjectComponent },
+
+        ]},
       { path: 'pipes', component: PipesComponent,  children: [
           { path: 'map', component: MapComponent },
           { path: 'mergemap', component: MergemapComponent },
@@ -54,7 +63,11 @@ const routes: Routes = [
     CombinelatestComponent,
     ZipComponent,
     ConcatmapComponent,
-    ExhaustmapComponent
+    ExhaustmapComponent,
+    RegularsubjectComponent,
+    BehavioursubjectComponent,
+    ReplaysubjectComponent,
+    AsyncsubjectComponent
   ],
   imports: [
     CommonModule,

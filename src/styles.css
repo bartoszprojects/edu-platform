@@ -56,4 +56,13 @@ li.active-link a {
   background: #8096ab;
 }
 
+.bl-horizontal-area {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+}
+.bl-horizontal-area button {
+  margin: 10px;
+}
+
 /*# sourceMappingURL=styles.css.map */
