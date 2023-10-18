@@ -1,0 +1,58 @@
+[
+  {
+    "id": "USA",
+    "country": "United States",
+    "capital": "Washington, D.C.",
+    "currency": "USD",
+    "population": 331000000
+  },
+  {
+    "id": "UK",
+    "country": "United Kingdom",
+    "capital": "London",
+    "currency": "GBP",
+    "population": 68200000
+  },
+  {
+    "id": "FR",
+    "country": "France",
+    "capital": "Paris",
+    "currency": "EUR",
+    "population": 67100000
+  },
+  {
+    "id": "GER",
+    "country": "Germany",
+    "capital": "Berlin",
+    "currency": "EUR",
+    "population": 83100000
+  },
+  {
+    "id": "PL",
+    "country": "Poland",
+    "capital": "Warsaw",
+    "currency": "PLN",
+    "population": 39090000
+  },
+  {
+    "id": "IT",
+    "country": "Italy",
+    "capital": "Rome",
+    "currency": "EUR",
+    "population": 60300000
+  },
+  {
+    "id": "SPA",
+    "country": "Spain",
+    "capital": "Madrid",
+    "currency": "EUR",
+    "population": 46700000
+  },
+  {
+    "id": "EGP",
+    "country": "Egypt",
+    "capital": "Cairo",
+    "currency": "EGP",
+    "population": 104000000
+  }
+]

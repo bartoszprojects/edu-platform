@@ -1,1 +1,225 @@
-<p>map works!</p>
+
+<div class="example" *ngIf="snippets$ | async as snippetData">
+  <div class="example-header">
+    <h3>Map Operator</h3>
+    <div class="example-header-desc"><b class="example-header-desc-title">Generally: </b><span>I am using 'map' operator when I want to make any operation on data flowing through the Stream before subscribing</span></div>
+    <div class="example-header-desc"><b class="example-header-desc-title">Purpose: </b><span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</span></div>
+
+  </div>
+  <div class="example-desc">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false" style="margin: 15px" [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            1. Map - Basics
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="code-snippet-area">
+
+          <mat-tab-group>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">code</mat-icon>
+                Code Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+                <p class="example-inner-desc">Very basic example</p>
+                <p [innerHTML]="snippetData.basics1 | sanitize"></p>
+                <div class="keywords">
+                  <ul>
+                    <li>map</li>
+                    <li>observable</li>
+                  </ul>
+                </div>
+              </div>
+
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">image</mat-icon>
+                Interactive Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+              </div>
+            </mat-tab>
+
+            <mat-tab disabled>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">image</mat-icon>
+                Image Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+              </div>
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">video_library</mat-icon>
+                Video Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+
+                <video controls="controls" width="800" height="600" name="Video Name">
+                  <source src="/assets/videos/generic-types1.mov">
+                </video>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+
+        </div>
+        <div class="code-snippet-area">
+
+          <mat-tab-group>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">code</mat-icon>
+                Code Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+                <p class="example-inner-desc">Example where I am using Observable to get the array of object items and then convert it</p>
+                <p [innerHTML]="snippetData.basics2 | sanitize"></p>
+                <div class="keywords">
+                  <ul>
+                    <li>map</li>
+                    <li>observable</li>
+                    <li>spread operator</li>
+                  </ul>
+                </div>
+              </div>
+
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">image</mat-icon>
+                Interactive Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+              </div>
+            </mat-tab>
+
+            <mat-tab disabled>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">image</mat-icon>
+                Image Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+              </div>
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">video_library</mat-icon>
+                Video Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+
+                <video controls="controls" width="800" height="600" name="Video Name">
+                  <source src="/assets/videos/generic-types1.mov">
+                </video>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+
+        </div>
+
+        <div class="keywords">
+          <ul>
+            <li>map</li>
+            <li>observable</li>
+            <li>subject</li>
+            <li>higher-order</li>
+          </ul>
+        </div>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </div>
+  <div class="example-desc">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false" [expanded]="false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            2. Map - Medium
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="code-snippet-area">
+
+          <mat-tab-group>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">code</mat-icon>
+                Code Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+                <p>Very basic example</p>
+                <p [innerHTML]="snippetData.basics1 | sanitize"></p>
+                <div class="keywords">
+                  <ul>
+                    <li>map</li>
+                    <li>observable</li>
+                  </ul>
+                </div>
+              </div>
+
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">image</mat-icon>
+                Interactive Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+              </div>
+            </mat-tab>
+
+            <mat-tab disabled>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">image</mat-icon>
+                Image Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+              </div>
+            </mat-tab>
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="code-tab-icon">video_library</mat-icon>
+                Video Example
+              </ng-template>
+              <div class="code-snippet-area-content">
+
+                <video controls="controls" width="800" height="600" name="Video Name">
+                  <source src="/assets/videos/generic-types1.mov">
+                </video>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+
+        </div>
+
+        <div class="keywords">
+          <ul>
+            <li>map</li>
+            <li>observable</li>
+            <li>subject</li>
+            <li>higher-order</li>
+          </ul>
+        </div>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </div>
+
+
+</div>
+

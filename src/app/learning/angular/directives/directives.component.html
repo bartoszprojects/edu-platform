@@ -1,0 +1,31 @@
+<div class="example">
+
+  <p appBasic>Highlight me!</p>
+  <div *appBasic2 color="red">
+    Hover over me to change my background color!
+  </div>
+
+
+  <p appBasic3>Highlight me3333333!</p>
+
+  <div class="example">
+    <div class="parent" style="border: 1px solid red;
+    width: 400px;
+    height: 400px;">
+      <div appBasic4 class="children" style="background: black;
+    margin: 10px;
+    height: 40px;
+    width: 40px;"></div>
+
+
+    </div>
+  </div>
+
+  <div appBasic5 [currentPage]="1" #appBasic5="appBasic5" (outerPage)="outerPage2($event)">
+    <button id="nextPage" (click)="appBasic5.nextPage()">nextPage()</button>
+    <button id="previousPage" (click)="appBasic5.previousPage()">previousPage()</button>
+    <p>current page: {{ appBasic5.getCurrentPage }}</p>
+  </div>
+
+
+</div>

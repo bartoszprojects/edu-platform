@@ -1,15 +1,44 @@
 <div class="example">
 
+  <div class="bl-horizontal-area" [formGroup]="myForm">
 
-
-  <div class="bl-horizontal-area">
-    <button (click)="myFunc4(1)" class="bl-def-button">myFunc4(1)</button>
-    <button (click)="myFunc4(2)" class="bl-def-button">myFunc4(2)</button>
-    <button (click)="myFunc4(3)" class="bl-def-button">myFunc4(3)</button>
-    <button (click)="myFunc4(4)" class="bl-def-button">myFunc4(4)</button>
-
+    <input class="bl-def-input" id="name" formControlName="name" />
+    <input class="bl-def-input" id="surname" formControlName="surname" />
+    <input class="bl-def-input" id="age" type="number" formControlName="age" />
+    <input class="bl-def-input" id="country" formControlName="country" />
+    <button type="submit" (click)="myFunc4()" [disabled]="!myForm.valid" class="bl-def-button">Submit</button>
 
   </div>
 
+  <div class="example">
+    <ul class="bl-def-ul">
+      <li *ngFor="let element of finalObject | keyvalue">
+        <a>{{ element.key }}</a>
+        <table class="bl-default-table">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Country</th>
+            <th>Extra</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of element.value">
+            <td>{{ item.name }}</td>
+            <td>{{ item.surname }}</td>
+            <td>{{ item.age }}</td>
+            <td>{{ item.country }}</td>
+            <td>{{ (item.extra) ? (item.extra | json) : "NO-DATA" }}</td>
+
+          </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+    <button type="submit" (click)="myFunc5()" class="bl-def-button">myFnc5()</button>
+
+  </div>
 
 </div>

@@ -11,6 +11,7 @@ import {AppModule} from "../../app.module";
 import {PipesModule} from "../../pipes/pipes.module";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from "@angular/material/tabs";
+import {ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
     { path: '', component: TypescriptComponent,
@@ -31,16 +32,17 @@ const routes: Routes = [
     TypescriptComponent,
     BasicsComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterLink,
-    RouterLinkActive,
-    RouterOutlet,
-    RouterModule.forChild(routes),
-    MatExpansionModule,
-    MatIconModule,
-    MatTabsModule,
-    PipesModule
-  ]
+    imports: [
+        CommonModule,
+        RouterLink,
+        RouterLinkActive,
+        RouterOutlet,
+        RouterModule.forChild(routes),
+        MatExpansionModule,
+        MatIconModule,
+        MatTabsModule,
+        PipesModule,
+        ReactiveFormsModule
+    ]
 })
 export class TypescriptModule { }

@@ -5,3 +5,11 @@ export interface InterfaceGenerics1 {
   experience: number,
   position: string
 }
+
+export interface InterfaceGenerics2 {
+  id: string,
+  country: string,
+  capital: number,
+  currency: string,
+  population: number
+}

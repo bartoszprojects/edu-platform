@@ -20,7 +20,6 @@ export class GlobalService {
   }
 
   getCodeSnippet(learningSection: string, learningSubject: string): Observable<ApiResponse> {
-    let snippetFileName = 'snippets.json'
     let urlToCodeSnippet: string = `./assets/json/learning/${learningSection}/${learningSubject}/snippets.json`;
     return this.http.get<ApiResponse>(urlToCodeSnippet);
 

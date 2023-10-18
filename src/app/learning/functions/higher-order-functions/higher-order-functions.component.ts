@@ -133,7 +133,7 @@ export class HigherOrderFunctionsComponent implements OnInit{
     function categorizeByPosition(clients: any[], type: string) {
       if (!['name', 'position'].includes(type)) throw new Error('Custom Error: Wrong type of client')
 
-      return clients.reduce((acc, client: any) => (
+      return clients.reduce((acc, client) => (
         { ...acc, [client[type]]: [...acc[client[type]] || [], client] }
       ),{ })
     }

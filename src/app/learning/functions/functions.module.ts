@@ -11,8 +11,6 @@ import { RecursionFunctionsComponent } from './recursion-functions/recursion-fun
 import { FunctionsComponent } from './functions/functions.component';
 import {RouterModule, Routes} from "@angular/router";
 import {MatExpansionModule} from "@angular/material/expansion";
-import {SnippetDirective} from "../../directives/snippet.directive";
-import {ConverterDirective} from "../../directives/converter.directive";
 import { BasicsComponent } from './basics/basics.component';
 import {PipesModule} from "../../pipes/pipes.module";
 
@@ -43,8 +41,6 @@ const routes: Routes = [
         CompositionsFunctionsComponent,
         RecursionFunctionsComponent,
         FunctionsComponent,
-        SnippetDirective,
-        ConverterDirective,
         BasicsComponent
     ],
     exports: [

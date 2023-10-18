@@ -19,6 +19,10 @@ import { RegularsubjectComponent } from './subject/regularsubject/regularsubject
 import { BehavioursubjectComponent } from './subject/behavioursubject/behavioursubject.component';
 import { ReplaysubjectComponent } from './subject/replaysubject/replaysubject.component';
 import { AsyncsubjectComponent } from './subject/asyncsubject/asyncsubject.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {PipesModule} from "../../pipes/pipes.module";
+import {MatIconModule} from "@angular/material/icon";
+import {MatTabsModule} from "@angular/material/tabs";
 
 const routes: Routes = [
   { path: '', component: RxjsComponent,
@@ -72,6 +76,10 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    MatExpansionModule,
+    PipesModule,
+    MatIconModule,
+    MatTabsModule,
   ]
 })
 export class RxjsModule { }

@@ -31,8 +31,6 @@ export class ZipComponent implements OnInit {
 
     const zipObs1= zip(mySubj1, mySubj2, mySubj3).subscribe((res) => console.log(res))
 
-
-
   }
 
 }

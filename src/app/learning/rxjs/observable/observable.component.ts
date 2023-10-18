@@ -11,15 +11,17 @@ import {commonInterface1} from "../../common-helpers/interfaces/common-interface
 export class ObservableComponent implements OnInit {
 
   func1 = () => {};
-  dollarVar1$: Observable<commonInterface1[]> = new Observable<commonInterface1[]>()
+  dollarVar1$!: Observable<commonInterface1[]>
 
   constructor(private commonService: CommonService) {
+    this.dollarVar1$ = this.commonService.getData()
+
   }
 
   ngOnInit() {
     // this.rxjsObservable0()
     // this.rxjsObservable1();
-    this.rxjsHotColdObservables();
+    // this.rxjsHotColdObservables();
   }
 
   rxjsObservable0(): void {
@@ -51,18 +53,25 @@ export class ObservableComponent implements OnInit {
 
         // SUBSCRIPTION => Subscription represents the execution of an Observable and allows you to manage the subscription's lifecycle
 
+        // ------------------------------------------------------------------
+        const bart: Observable<Event> = fromEvent(document, 'click')
 
-    // PUSH & PULL Observable
+        const myObserver = {
+          result: (result: any) => console.log('result from next(): ', result),
+          error: (error: any) => console.log('result from error(): ', error),
+          complete: () => console.log('result from complete()')
+        }
 
-    // HIGHER ORDER OBSERVABLE
+        const mySubsc1 = bart.subscribe(myObserver)
 
+        this.func1 = () => mySubsc1.unsubscribe()
 
   }
 
   rxjsHotColdObservables() {
     // HOT & COLD Observable
 
-      // COLD Observable (UNICAST)
+      // COLD Observable (UNICAST & PULL)
 
         // This is like private lesson with teacher and single student. Different students learn the same subject but
         // in a various time.
@@ -72,7 +81,7 @@ export class ObservableComponent implements OnInit {
           // - For the new subscriber, it produces the same values again
           // - example: http.get
 
-      // HOT Observable (MULTICAST)
+      // HOT Observable (MULTICAST & PUSH | PULL)
 
         // This is like lesson for students in a large auditorium. All students listen the same lecture in the same time
         // This is MULTICAST (throw data for multi recipients at the same time)
@@ -134,26 +143,12 @@ export class ObservableComponent implements OnInit {
           // .. so we should convert COLD observable (unicast) to HOT using share() operator.
           // Behind the scenes this is just hidden Subject that share one value to multi recipients
             .pipe(share())
-    
-  }
-
-
-  rxjsObservable1(): void {
-
-    // ------------------------------------------------------------------
-    const bart: Observable<Event> = fromEvent(document, 'click')
-
-    const myObserver = {
-      result: (result: any) => console.log('result from next(): ', result),
-      error: (error: any) => console.log('result from error(): ', error),
-      complete: () => console.log('result from complete()')
-    }
-
-
-    const mySubsc1 = bart.subscribe(myObserver)
-
-    this.func1 = () => mySubsc1.unsubscribe()
 
   }
+
+  rxjsHigherOrderObservables() {
+
+  }
+
 
 }
