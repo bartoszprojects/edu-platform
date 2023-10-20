@@ -10,6 +10,11 @@ body, a, p {
   display: none;
 }
 
+.bl-disabled-button {
+  background: white;
+  color: silver;
+}
+
 li.active-link {
   background-color: #8096ab;
 }
@@ -103,12 +108,12 @@ li.active-link a {
 }
 
 .bl-def-button {
-  width: 100px;
   background: #ae9676;
   color: white;
   border: none;
   border-radius: 5px;
   padding: 10px;
+  margin: 5px;
   cursor: pointer;
 }
 .bl-def-button:hover {

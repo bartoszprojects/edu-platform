@@ -23,6 +23,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {PipesModule} from "../../pipes/pipes.module";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from "@angular/material/tabs";
+import {SharedModule} from "../../shared/shared.module";
 
 const routes: Routes = [
   { path: '', component: RxjsComponent,
@@ -71,7 +72,8 @@ const routes: Routes = [
     RegularsubjectComponent,
     BehavioursubjectComponent,
     ReplaysubjectComponent,
-    AsyncsubjectComponent
+    AsyncsubjectComponent,
+
   ],
   imports: [
     CommonModule,
@@ -80,6 +82,7 @@ const routes: Routes = [
     PipesModule,
     MatIconModule,
     MatTabsModule,
+    SharedModule
   ]
 })
 export class RxjsModule { }

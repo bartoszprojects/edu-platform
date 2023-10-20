@@ -14,7 +14,7 @@ import {TypescriptModule} from "./learning/typescript/typescript.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,9 +27,11 @@ import {TypescriptModule} from "./learning/typescript/typescript.module";
     PipesModule,
     TypescriptModule,
     FunctionsModule
+
   ],
   providers: [],
-  exports:[],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

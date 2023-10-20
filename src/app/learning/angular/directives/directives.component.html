@@ -21,10 +21,18 @@
     </div>
   </div>
 
-  <div appBasic5 [currentPage]="1" #appBasic5="appBasic5" (outerPage)="outerPage2($event)">
-    <button id="nextPage" (click)="appBasic5.nextPage()">nextPage()</button>
-    <button id="previousPage" (click)="appBasic5.previousPage()">previousPage()</button>
+  <div appBasic5 [currentPage]="1" #appBasic5="appBasic5" (emitData)="handleData($event)">
+    <button id="previousPage" (click)="appBasic5.previousPage()" class="bl-def-button">previousPage()</button>
+    <button id="nextPage" (click)="appBasic5.nextPage()" class="bl-def-button">nextPage()</button>
+
     <p>current page: {{ appBasic5.getCurrentPage }}</p>
+  </div>
+  <div class="example">
+    <ul class="bl-def-ul" *ngIf="stream$ | async as items">
+      <li *ngFor="let element of items">
+        <a>item: {{ element | json }}</a>
+      </li>
+    </ul>
   </div>
 
 

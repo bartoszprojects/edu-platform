@@ -9,14 +9,12 @@ import {BehaviorSubject, Subject} from "rxjs";
 export class BehavioursubjectComponent implements OnInit {
 
   constructor() {
-
   }
 
   ngOnInit() {
-
     this.basicsRxjsBehaviourSubject1()
-
   }
+
   basicsRxjsBehaviourSubject1(): void {
     // BEHAVIOUR SUBJECT (HOT & PUSH)
 

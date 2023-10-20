@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 
 type zeroType = 0
+
 @Directive({
   selector: '[appBasic5]',
   exportAs: 'appBasic5'
@@ -23,12 +24,11 @@ export class Basic5Directive implements AfterViewInit {
   @Input() currentPage: number = 0
   @Input() totalPages: number = 5
 
-  @Output() outerPage: EventEmitter<number> = new EventEmitter<number>();
+  @Output() emitData: EventEmitter<number> = new EventEmitter<number>();
 
 
   constructor(private elem: ElementRef, private renderer: Renderer2) {
     this.element = elem.nativeElement
-
 
   }
 
@@ -36,6 +36,8 @@ export class Basic5Directive implements AfterViewInit {
     // 'as HTMLElement' assertion - typescript cannot infer type here because it is inside another file
     this.nextPageButton = this.element.querySelector('#nextPage') as HTMLElement;
     this.previousPageButton = this.element.querySelector('#previousPage') as HTMLElement;
+    this.disableButton(this.previousPageButton, true)
+
   }
 
   get getCurrentPage(): number {
@@ -43,44 +45,41 @@ export class Basic5Directive implements AfterViewInit {
   }
 
   checkLastIndex(index: number): number {
-    return (index > this.totalPages) ? this.handleLastPage : index
+    return (index >= this.totalPages) ? this.handleOutOfTotalPages(this.nextPageButton) :
+      this.disableButton(this.previousPageButton, false)
   }
 
   checkFirstIndex(index: number): number {
-    return (index < 1) ? this.handleFirstPage : index
+    return (index <= 1) ? this.handleOutOfTotalPages(this.previousPageButton) :
+      this.disableButton(this.nextPageButton, false)
   }
 
-  get handleLastPage(): number {
-    this.disableButton(this.nextPageButton)
-    return this.totalPages
+
+  handleOutOfTotalPages(buttonElement: HTMLElement): number {
+    this.disableButton(buttonElement, true)
+    return this.currentPage
   }
 
-  get handleFirstPage(): number {
-    this.disableButton(this.previousPageButton)
-    return this.totalPages
-  }
 
-  disableButton(buttonElement: HTMLElement): void {
-    this.renderer.setProperty(buttonElement, 'disabled', true);
+  disableButton(buttonElement: HTMLElement, event: boolean): number {
+    this.renderer.setProperty(buttonElement, 'disabled', event);
+
+    (event)? this.renderer.addClass(buttonElement, 'bl-disabled-button') :
+      this.renderer.removeClass(buttonElement, 'bl-disabled-button')
+
+    return this.currentPage
+
   }
 
   nextPage(): void {
     this.currentPage += 1;
-    this.outerPage.emit(this.checkLastIndex(this.currentPage));
+    this.emitData.emit(this.checkLastIndex(this.currentPage));
   }
 
 
   previousPage(): void {
     this.currentPage -= 1
-    this.outerPage.emit(this.checkFirstIndex(this.currentPage))
-
-  }
-
-  lastPage(): void {
-
-  }
-
-  firstPage(): void {
+    this.emitData.emit(this.checkFirstIndex(this.currentPage))
 
   }
 

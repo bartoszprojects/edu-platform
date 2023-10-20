@@ -1,3 +1,7 @@
-
+.bl-disabled-button {
+  background: white;
+  color: silver;
+  cursor: not-allowed;
+}
 
 /*# sourceMappingURL=directives.component.css.map */
