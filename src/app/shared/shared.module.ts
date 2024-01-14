@@ -5,10 +5,14 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {PipesModule} from "../pipes/pipes.module";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from "@angular/material/tabs";
+import {
+  ConcatmapInteractive1Component
+} from "../learning/rxjs/pipes/concatmap/interactives/concatmap-interactive1/concatmap-interactive1.component";
 
 @NgModule({
   declarations: [
     CodeExampleComponent,
+    ConcatmapInteractive1Component
   ],
   exports: [
     CodeExampleComponent,

@@ -1,6 +1,6 @@
 <div class="top-nav">
   <div class="top-nav-logo">
-    <img src="assets/images/logo2.png" />
+    <img src="assets/images/logo2.png"/>
   </div>
   <div class="top-nav-center">
 
@@ -12,24 +12,34 @@
 
   </div>
 </div>
-<div id="container">
-  <header class="header">
-    <nav class="nav">
-      <ul>
-        <li routerLinkActive="active-link"><a routerLink="/javascript">JAVASCRIPT</a></li>
-        <li routerLinkActive="active-link"><a routerLink="/angular">ANGULAR</a></li>
-        <li routerLinkActive="active-link"><a routerLink="/ngrx">NGRX</a></li>
-        <li routerLinkActive="active-link"><a routerLink="/functions">FUNCTIONS</a></li>
-        <li routerLinkActive="active-link"><a routerLink="/typescript">TYPESCRIPT</a></li>
-        <li routerLinkActive="active-link"><a routerLink="/rxjs">RXJS</a></li>
+<div id="all">
+  <div class="sideBar">
 
-      </ul>
-    </nav>
-  </header>
-
-  <div class="content">
-    <router-outlet>
-    </router-outlet>
   </div>
+  <div id="container">
 
+    <header class="header">
+      <nav class="nav">
+        <ul>
+          <li routerLinkActive="active-link"><a routerLink="/javascript">JAVASCRIPT</a></li>
+          <li routerLinkActive="active-link"><a routerLink="/angular">ANGULAR</a></li>
+          <li routerLinkActive="active-link"><a routerLink="/ngrx">NGRX</a></li>
+          <li routerLinkActive="active-link"><a routerLink="/functions">FUNCTIONS</a></li>
+          <li routerLinkActive="active-link"><a routerLink="/typescript">TYPESCRIPT</a></li>
+          <li routerLinkActive="active-link"><a routerLink="/rxjs">RXJS</a></li>
+
+        </ul>
+      </nav>
+    </header>
+
+    <div class="content">
+      <router-outlet>
+      </router-outlet>
+    </div>
+
+
+  </div>
+  <div class="sideBar">
+
+  </div>
 </div>

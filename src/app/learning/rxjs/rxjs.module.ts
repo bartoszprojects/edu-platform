@@ -24,6 +24,7 @@ import {PipesModule} from "../../pipes/pipes.module";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from "@angular/material/tabs";
 import {SharedModule} from "../../shared/shared.module";
+import { ConcatmapInteractive1Component } from './pipes/concatmap/interactives/concatmap-interactive1/concatmap-interactive1.component';
 
 const routes: Routes = [
   { path: '', component: RxjsComponent,
@@ -75,6 +76,8 @@ const routes: Routes = [
     AsyncsubjectComponent,
 
   ],
+  exports: [
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -82,7 +85,7 @@ const routes: Routes = [
     PipesModule,
     MatIconModule,
     MatTabsModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class RxjsModule { }
