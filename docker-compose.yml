@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "${ADMINER_HTTP_PORT:-8080}:8080"
+  database:
+    build: ./database/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=edu_platform
+    ports:
+      - "5432:5432"
+    container_name: 'database'
+  backend:
+    build: ./backend/
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+    container_name: 'backend'
+
+
+
+
