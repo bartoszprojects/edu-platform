@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { SnippetsModule } from "./modules/snippets/snippets/snippets.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Snippet } from "./modules/snippets/snippets/snippet.entity";
+import {SnippetCategory} from "./modules/snippet.categories/snippet.categories.entity";
+import {SnippetCategoriesModule} from "./modules/snippet.categories/snippet.categories.module";
 
 @Module({
   imports: [
@@ -14,11 +16,12 @@ import { Snippet } from "./modules/snippets/snippets/snippet.entity";
       username: 'postgres',
       password: 'postgres',
       database: 'edu_platform',
-      entities: [Snippet],
+      entities: [Snippet, SnippetCategory],
       synchronize: true,
 
     }),
-      SnippetsModule
+      SnippetsModule,
+      SnippetCategoriesModule
   ],
   controllers: [AppController],
   providers: [AppService],

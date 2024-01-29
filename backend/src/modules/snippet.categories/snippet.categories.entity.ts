@@ -5,17 +5,23 @@ import {
     CreateDateColumn,
     DeleteDateColumn,
     UpdateDateColumn,
-    ManyToOne
+    OneToMany
 } from 'typeorm';
-import {SnippetCategory} from "../../snippet.categories/snippet.categories.entity";
+import {Snippet} from "../snippets/snippets/snippet.entity";
 
 @Entity()
-export class Snippet {
+export class SnippetCategory {
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    snippet: string;
+    snippet_category: string;
+
+    @Column()
+    description: string;
+
+    @Column()
+    category_level: number;
 
     @CreateDateColumn()
     createdAt?: Date;
@@ -26,7 +32,8 @@ export class Snippet {
     @UpdateDateColumn()
     updatedAt?: Date;
 
-    @ManyToOne(() => SnippetCategory, category => category.snippets)
-    category: SnippetCategory;
+    @OneToMany(() => Snippet, snippet => snippet.category)
+    snippets: Snippet[];
+
 
 }

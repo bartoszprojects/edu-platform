@@ -15,9 +15,22 @@ export class SnippetsService {
         return this.snippetRepository.find();
     }
 
+    async getAllSnippetsWithCategory(categoryId: number): Promise<Snippet[]> {
+        return this.snippetRepository.createQueryBuilder('snippet')
+            .leftJoinAndSelect('snippet.category', 'category')
+            .where('category.id = :categoryId', { categoryId })
+            .getMany();
+    }
+
     async saveSnippet(createSnippetDto: CreateSnippetDto): Promise<Snippet> {
-        const snippet = this.snippetRepository.create(createSnippetDto);
-        return this.snippetRepository.save(snippet);
+        try {
+            const snippet = this.snippetRepository.create(createSnippetDto);
+            return this.snippetRepository.save(snippet);
+        }
+        catch (e) {
+            console.log('hhahhahahhahahahhahah: ', e)
+        }
+
     }
 }
 

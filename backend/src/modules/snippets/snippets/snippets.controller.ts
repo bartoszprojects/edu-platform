@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post, Req} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, Req} from '@nestjs/common';
 import {SnippetsService} from "./snippets.service";
 import {CreateSnippetDto} from "./dto/create.snippet.dto";
 import {Snippet} from "./snippet.entity";
@@ -15,8 +15,19 @@ export class SnippetsController {
         return this.snippetsService.getAllSnippets()
     }
 
+    @Get('category/:categoryId')
+    async getSnippetsByCategory(@Param('categoryId') categoryId: number): Promise<Snippet[]> {
+        return this.snippetsService.getAllSnippetsWithCategory(categoryId);
+    }
+
     @Post()
-    createSnippet(@Body() createSnippetDto: CreateSnippetDto): Promise<Snippet> {
-        return this.snippetsService.saveSnippet(createSnippetDto)
+    createSnippet(@Body() createSnippetDto: CreateSnippetDto): Promise<Snippet>  | string{
+        try {
+            return this.snippetsService.saveSnippet(createSnippetDto)
+
+        }
+        catch (e) {
+            return 'xxxxxxx'
+        }
     }
 }
