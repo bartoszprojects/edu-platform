@@ -42,3 +42,6 @@ Thumbs.db
 
 # Others
 /src/assets/videos
+.angular/
+node_modules/
+dist/
