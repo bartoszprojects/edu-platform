@@ -16,9 +16,21 @@ export const setYourNumber = createAction(
   (yourNumber: number) => ({ yourNumber })
 );
 
+export const GET_USERS = "[CORE] GET_USERS";
+export const getUsers = createAction(
+  GET_USERS,
+  (users: User[]) => ({ users })
+);
+
 
 export const ADD_USER = "[CORE] ADD_USER";
 export const addUser = createAction(
   ADD_USER,
   (user: User) => ({ user })
+);
+
+export const REMOVE_USER = "[CORE] REMOVE_USER";
+export const removeUser = createAction(
+  REMOVE_USER,
+  (userId: string | number) => ({ userId })
 );

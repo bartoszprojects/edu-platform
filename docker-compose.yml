@@ -20,7 +20,7 @@ services:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     ports:
-      - "3000:3000"
+      - "3333:3333"
     volumes:
       - ./backend:/app
     container_name: 'backend'

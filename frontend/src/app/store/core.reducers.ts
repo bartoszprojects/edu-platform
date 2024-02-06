@@ -14,9 +14,7 @@ export const counterReducer = createReducer(
   on(actions.resetNumber, (state) => 0),
   on(actions.setConstNumb, (state) => 100),
   on(actions.setYourNumber, (state, { yourNumber }) => yourNumber),
-
 );
-
 
 export interface User {
   id: string | number
@@ -35,8 +33,14 @@ export const initialUsersState: UsersState = {
 
 export const usersReducer = createReducer(
   initialUsersState,
-  on(actions.addUser, (state: UsersState, { user }): UsersState & { extra: string }  => ({
-    users: [...state.users, user], // Add the new user to the existing array,
-    extra: "extra info"
+  on(actions.getUsers, (state: UsersState, { users }): UsersState => ({
+    users: users
+  })),
+  on(actions.addUser, (state: UsersState, { user }): UsersState => ({
+    users: [...state.users, user]
+  })),
+  on(actions.removeUser, (state: UsersState, { userId }): UsersState => ({
+    ...state,
+    users: state.users.filter(user => user.id != userId)
   }))
 )

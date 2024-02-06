@@ -11,7 +11,7 @@ import {SnippetCategoriesModule} from "./modules/snippet.categories/snippet.cate
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'database',
+      host: 'localhost',
       port: 5432,
       username: 'postgres',
       password: 'postgres',

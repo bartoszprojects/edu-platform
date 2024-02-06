@@ -40,9 +40,9 @@
 
   </div>
   <div class="sideBar">
-
   </div>
 </div>
+
 <button (click)="incrementNumber()">store incrementNumber</button>
 <button (click)="decrementNumber()">store decrementNumber</button>
 <button (click)="resetNumber()">store resetNumber</button>
@@ -51,4 +51,8 @@
 <input type="text" [(ngModel)]="inputValue">
 <p>count: {{ count$ | async }}</p>
 <button (click)="addUser()">store addUser</button>
+<button (click)="removeUser()">store removeUser</button>
+<button (click)="getUsers()">store getUsers</button>
+
 <p>users: {{ users$ | async | json }}</p>
+<button (click)="getSnippets()">getSnippets</button>

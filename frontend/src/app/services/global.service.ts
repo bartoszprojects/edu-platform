@@ -24,4 +24,8 @@ export class GlobalService {
     return this.http.get<ApiResponse>(urlToCodeSnippet);
 
   }
+
+  getSnippets(): Observable<any> {
+    return this.http.get('http://localhost:3000/snippets')
+  }
 }
