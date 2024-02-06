@@ -43,3 +43,12 @@
 
   </div>
 </div>
+<button (click)="incrementNumber()">store incrementNumber</button>
+<button (click)="decrementNumber()">store decrementNumber</button>
+<button (click)="resetNumber()">store resetNumber</button>
+<button (click)="setConstNumb()">store setConstNumb</button>
+<button (click)="setYourNumber()">store setYourNumber</button>
+<input type="text" [(ngModel)]="inputValue">
+<p>count: {{ count$ | async }}</p>
+<button (click)="addUser()">store addUser</button>
+<p>users: {{ users$ | async | json }}</p>

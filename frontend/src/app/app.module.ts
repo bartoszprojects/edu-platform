@@ -11,6 +11,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from "@angular/material/tabs";
 import {PipesModule} from "./pipes/pipes.module";
 import {TypescriptModule} from "./learning/typescript/typescript.module";
+import { StoreModule } from '@ngrx/store';
+import {counterReducer, usersReducer} from "./store/core.reducers";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import {TypescriptModule} from "./learning/typescript/typescript.module";
     MatTabsModule,
     PipesModule,
     TypescriptModule,
-    FunctionsModule
+    FunctionsModule,
+    StoreModule.forRoot({count: counterReducer, users: usersReducer}, {}),
+    FormsModule
 
   ],
   providers: [],
