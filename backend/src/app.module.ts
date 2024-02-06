@@ -6,6 +6,8 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { Snippet } from "./modules/snippets/snippets/snippet.entity";
 import {SnippetCategory} from "./modules/snippet.categories/snippet.categories.entity";
 import {SnippetCategoriesModule} from "./modules/snippet.categories/snippet.categories.module";
+import {User} from "./modules/users/user.entity";
+import {UserModule} from "./modules/users/user.module";
 
 @Module({
   imports: [
@@ -16,12 +18,13 @@ import {SnippetCategoriesModule} from "./modules/snippet.categories/snippet.cate
       username: 'postgres',
       password: 'postgres',
       database: 'edu_platform',
-      entities: [Snippet, SnippetCategory],
+      entities: [Snippet, SnippetCategory, User],
       synchronize: true,
 
     }),
       SnippetsModule,
-      SnippetCategoriesModule
+      SnippetCategoriesModule,
+      UserModule
   ],
   controllers: [AppController],
   providers: [AppService],
