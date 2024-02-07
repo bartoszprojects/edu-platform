@@ -1,0 +1,18 @@
+<p>users works!</p>
+<button (click)="getUsersStart()">getUsersStart()</button>
+<button (click)="addUsersStart()">addUsersStart()</button>
+
+<p>users from the backend:</p>
+<ul *ngIf="users$ | async as users" class="code-snippet-area">
+  <li *ngFor="let user of users">
+    <a> {{ user | json }}</a>
+  </li>
+</ul>
+
+
+<p>users from the store:</p>
+<ul *ngIf="usersFromStore$ | async as usersFromStore" class="code-snippet-area">
+  <li *ngFor="let user of usersFromStore">
+    <a> {{ user | json }}</a>
+  </li>
+</ul>

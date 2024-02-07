@@ -16,13 +16,13 @@ export class User {
     @Column()
     name: string;
 
-    @Column()
+    @Column({nullable: true})
     surname?: string;
 
-    @Column()
+    @Column({nullable: true})
     email?: string;
 
-    @Column()
+    @Column({nullable: true})
     country?: string;
 
     @CreateDateColumn()

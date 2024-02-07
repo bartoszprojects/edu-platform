@@ -1,3 +1,5 @@
 export class CreateUserDto {
-    snippet: string;
+    name: string;
+    surname?: string;
+    email?: string;
 }

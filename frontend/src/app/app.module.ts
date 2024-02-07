@@ -12,8 +12,11 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {PipesModule} from "./pipes/pipes.module";
 import {TypescriptModule} from "./learning/typescript/typescript.module";
 import { StoreModule } from '@ngrx/store';
-import {counterReducer, usersReducer} from "./store/core.reducers";
+import {counterReducer} from "./store/core.reducers";
 import {FormsModule} from "@angular/forms";
+import {usersReducer} from "./store/users/user.reducers";
+import {EffectsModule} from "@ngrx/effects";
+import {UserEffects} from "./store/users/user.effects";
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import {FormsModule} from "@angular/forms";
     TypescriptModule,
     FunctionsModule,
     StoreModule.forRoot({count: counterReducer, users: usersReducer}, {}),
+    EffectsModule.forRoot([UserEffects]), // Add your effects class to EffectsModule.forRoot([])
     FormsModule
 
   ],

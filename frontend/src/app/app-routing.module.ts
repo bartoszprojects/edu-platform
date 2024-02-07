@@ -9,6 +9,7 @@ const appRoutes: Routes = [
   { path: 'typescript', loadChildren: () => import('./learning/typescript/typescript.module').then(m => m.TypescriptModule) },
   { path: 'rxjs', loadChildren: () => import('./learning/rxjs/rxjs.module').then(m => m.RxjsModule) },
   { path: 'ngrx', loadChildren: () => import('./learning/ngrx/ngrx.module').then(m => m.NgrxModule) },
+  { path: 'users', loadChildren: () => import('./components/users/users.module').then(m => m.UsersModule) },
 
 ];
 @NgModule({

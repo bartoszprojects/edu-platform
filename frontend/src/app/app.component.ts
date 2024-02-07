@@ -3,14 +3,12 @@ import {GlobalService} from "./services/global.service";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {
-  addUser,
-  decrementNumber, getUsers,
-  incrementNumber, removeUser,
+  decrementNumber,
+  incrementNumber,
   resetNumber,
   setConstNumb,
   setYourNumber
 } from "./store/core.actions";
-import {User} from "./store/core.reducers";
 
 @Component({
   selector: 'app-root',
@@ -19,15 +17,13 @@ import {User} from "./store/core.reducers";
 })
 export class AppComponent implements OnInit{
   count$: Observable<number>
-  users$: Observable<User>
 
   inputValue: number = 0;
 
 
-  constructor(private store:  Store<{ count: number, users: User }>,
+  constructor(private store:  Store<{ count: number }>,
               private globalService: GlobalService) {
     this.count$ = store.select('count');
-    this.users$ = store.select('users')
   }
 
   ngOnInit() {
@@ -50,33 +46,6 @@ export class AppComponent implements OnInit{
 
   setYourNumber() {
     this.store.dispatch(setYourNumber(this.inputValue))
-  }
-
-  addUser() {
-    const exampleUser = {
-      id: 2,
-      name: "name1",
-      surname: "surname1",
-      age: 25,
-      city: "city1"
-    }
-    this.store.dispatch(addUser(exampleUser))
-  }
-
-  removeUser(){
-    this.store.dispatch(removeUser(2))
-  }
-
-  getUsers(){
-    const exampleUsers = [{
-      id: 2,
-      name: "name1",
-      surname: "surname1",
-      age: 25,
-      city: "city1"
-    }]
-
-    this.store.dispatch(getUsers(exampleUsers))
   }
 
   getSnippets() {
