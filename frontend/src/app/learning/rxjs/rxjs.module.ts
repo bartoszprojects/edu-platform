@@ -25,6 +25,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from "@angular/material/tabs";
 import {SharedModule} from "../../shared/shared.module";
 import { ConcatmapInteractive1Component } from './pipes/concatmap/interactives/concatmap-interactive1/concatmap-interactive1.component';
+import {FormsModule} from "@angular/forms";
+import {PipesCompareComponent} from "./pipes/pipes-compare/pipes-compare.component";
 
 const routes: Routes = [
   { path: '', component: RxjsComponent,
@@ -40,6 +42,7 @@ const routes: Routes = [
         ]},
       { path: 'pipes', component: PipesComponent,  children: [
           { path: 'map', component: MapComponent },
+          { path: 'pipes-compare', component: PipesCompareComponent },
           { path: 'mergemap', component: MergemapComponent },
           { path: 'switchmap', component: SwitchmapComponent },
           { path: 'concatmap', component: ConcatmapComponent },
@@ -78,14 +81,15 @@ const routes: Routes = [
   ],
   exports: [
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatExpansionModule,
-    PipesModule,
-    MatIconModule,
-    MatTabsModule,
-    SharedModule,
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatExpansionModule,
+        PipesModule,
+        MatIconModule,
+        MatTabsModule,
+        SharedModule,
+        FormsModule,
+    ]
 })
 export class RxjsModule { }

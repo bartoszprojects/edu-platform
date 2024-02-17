@@ -33,26 +33,9 @@ export class MergemapComponent implements OnInit {
 
   ngOnInit() {
     this.rxjsMergeMapBasics0()
-
   }
 
   rxjsMergeMapBasics0(): void {
-    // mergeMap
-    // I am using mergeMap when I want to run the same stream multiple times at the same time
-
-    // ------------------------------------------------------------
-
-    const clickStream$ = fromEvent(document, 'click')
-    const timeStream$ = interval(500).pipe(take(3))
-
-
-    clickStream$
-      // when clickStream is done (when I clicked) then it runs second inner timeStream
-      //.. but when I click again during current timeStream session then it runs the same timeStream again
-      .pipe(mergeMap((e) => timeStream$))
-      // .subscribe((res) => console.log('rxjsMergeMapBasics0: ', res))
-
-    // ------------------------------------------------------------
 
     const mySubj1: Subject<string> = new Subject()
     const myInterval1: Observable<number> = interval(200).pipe(take(15))
@@ -64,7 +47,7 @@ export class MergemapComponent implements OnInit {
       return mySubj1.next(columnName)
     }
 
-    this.myStream1 = mySubj1.pipe(exhaustMap(
+    this.myStream1 = mySubj1.pipe(switchMap(
       (e: string) => myInterval1,
       (valueFromSubject: string, valueFromInterval: number) =>
         ({ column: valueFromSubject, value: valueFromInterval })

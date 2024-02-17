@@ -28,7 +28,7 @@ export class ObservableComponent implements OnInit {
 
     // OBSERVABLE IN GENERAL
 
-        // Observable is the 'Stream' with any values that you can connect to it and listen / watch for values that going
+        // Observable is the 'Stream' that you can connect to it and listen / watch for values that going
         // through this 'Stream' and disconnect from it in any time
 
     // OBSERVABLE VS PROMISE

@@ -1,0 +1,26 @@
+<div class="example">
+  <button (click)="triggerParentObservable()" class="bl-def-button">myFunc1</button>
+  <ul style="display: flex">
+    <li *ngFor="let key of dataFlowObject | keyvalue" style="list-style-type: none; margin: 20px; display: flex;
+      flex-direction: column; align-items: center">
+      <p>{{ key.key }}</p>
+      <div *ngFor="let x of key.value " style="width: 20px; height: 20px; background: #8096abb8;
+       margin: 2px; border-radius: 2px; border: none; box-shadow: 2px -1px 14px 0 #00000033">
+      </div>
+
+    </li>
+  </ul>
+</div>
+
+<div>
+  <label *ngFor="let option of options">
+    <input type="radio" name="options" (change)="checkOperatorType($event)" [value]="option">{{ option }}
+  </label>
+
+
+</div>
+
+<div class="example">
+
+
+</div>
