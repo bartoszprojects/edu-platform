@@ -1,4 +1,26 @@
 <div class="example">
+  <input #input1  class="bl-def-input" style="width: 200px" />
+
+</div>
+
+
+<div class="example">
+  <button (click)="addToBasket()" class="bl-def-button" style="width: 200px">addToCart</button>
+  <ul class="bl-def-ul">
+    <li *ngFor="let item of basketList">
+      <a>{{ item }}</a>
+    </li>
+  </ul>
+
+
+</div>
+
+<div class="example">
+  <button #loadDataButton id="loadDataButton" class="bl-def-button" style="width: 200px">loadDataButton</button>
+  <button #getDataButton id="getDataButton" class="bl-def-button" style="width: 200px">getDataButton</button>
+  <button #exportDataButton id="exportDataButton" class="bl-def-button" style="width: 200px">exportDataButton</button>
+
+  <button #getAllDataButton id="getAllDataButton" class="bl-def-button" style="width: 200px">getAllDataButton</button>
 
 
 </div>

@@ -1,3 +1,13 @@
 <div class="example">
+  <input #input1  class="bl-def-input" style="width: 200px" />
 
 </div>
+
+<div class="example">
+  <form [formGroup]="loginForm" (ngSubmit)="tryLogin()">
+    <input type="email" formControlName="userName" placeholder="Enter your userName" required>
+    <input type="password" formControlName="password" placeholder="Enter your password" required>
+    <button type="submit" [disabled]="loginForm.invalid">tryLogin()</button>
+  </form>
+</div>
+<button (click)="this.tryLoginSubject.next(true)">Make HTTP Request</button>

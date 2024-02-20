@@ -35,7 +35,7 @@ export class SwitchmapComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.rxjswitchMapBasics0()
-    this.rxjswitchMapBasics1()
+    this.rxjswitchMapRealExample1()
   }
 
   rxjswitchMapBasics0() {
@@ -64,10 +64,11 @@ export class SwitchmapComponent implements OnInit, AfterViewInit {
     // basic example
 
     // .. we have two Streams: time Stream and keyup event Stream
-    const intervalStream: Observable<number> = interval(100).pipe(take(20))
+    const intervalStream: Observable<number> = interval(300).pipe(take(10))
 
     const keyUpStream: Observable<string> = fromEvent<any>(this.input1.nativeElement, 'keyup')
       .pipe(map(event => event.target.value))
+      .pipe(tap(() => console.log('----- Parent Observable triggered -----')))
 
     // .. we mix the Streams using switchMap. Every trigger of 'keyupStream' do something with the second
     // 'intervalStream' inner Observable. In this case it does 'switchMap'. It means that every trigger of the first
@@ -83,8 +84,8 @@ export class SwitchmapComponent implements OnInit, AfterViewInit {
     });
   }
 
-  rxjswitchMapBasics1() {
-    // switchMap
+  rxjswitchMapRealExample1() {
+    // switchMap real example
     //
 
     interface Book {
@@ -123,13 +124,6 @@ export class SwitchmapComponent implements OnInit, AfterViewInit {
 
     // thanks to switchMap we're always getting the latest query for the Books
     queryObs.subscribe((result) => console.log('result: ', result))
-
-
-  }
-
-  rxjswitchMapBasics2() {
-
-
   }
 
 }
