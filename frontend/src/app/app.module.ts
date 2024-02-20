@@ -17,6 +17,8 @@ import {FormsModule} from "@angular/forms";
 import {usersReducer} from "./store/users/user.reducers";
 import {EffectsModule} from "@ngrx/effects";
 import {UserEffects} from "./store/users/user.effects";
+import {LearningModule} from "./learning/learning.module";
+import {LearningComponent} from "./learning/learning.component";
 
 @NgModule({
   declarations: [
@@ -33,9 +35,11 @@ import {UserEffects} from "./store/users/user.effects";
     PipesModule,
     TypescriptModule,
     FunctionsModule,
+    LearningModule,
     StoreModule.forRoot({count: counterReducer, users: usersReducer}, {}),
     EffectsModule.forRoot([UserEffects]), // Add your effects class to EffectsModule.forRoot([])
-    FormsModule
+    FormsModule,
+    LearningComponent
 
   ],
   providers: [],

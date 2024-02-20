@@ -24,7 +24,6 @@ import {PipesModule} from "../../pipes/pipes.module";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from "@angular/material/tabs";
 import {SharedModule} from "../../shared/shared.module";
-import { ConcatmapInteractive1Component } from './pipes/concatmap/interactives/concatmap-interactive1/concatmap-interactive1.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PipesCompareComponent} from "./pipes/pipes-compare/pipes-compare.component";
 
@@ -52,7 +51,6 @@ const routes: Routes = [
           { path: 'withlatestfrom', component: WithlatestfromComponent },
           { path: 'zip', component: ZipComponent },
         ] },
-
     ]
   }
 ];

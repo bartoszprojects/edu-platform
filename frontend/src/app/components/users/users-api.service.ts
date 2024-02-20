@@ -16,7 +16,8 @@ export class UsersApiService {
 
   addUser(): Observable<User> {
     const payload = {
-      name: "fromfrontend"
+      name: "name1",
+      password: "password1"
     }
     return this.http.post<User>(this.url, payload)
   }

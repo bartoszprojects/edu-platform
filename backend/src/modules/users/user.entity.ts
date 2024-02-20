@@ -7,6 +7,7 @@ import {
     UpdateDateColumn,
     ManyToOne
 } from 'typeorm';
+import { Exclude, Expose } from "class-transformer";
 
 @Entity()
 export class User {
@@ -24,6 +25,10 @@ export class User {
 
     @Column({nullable: true})
     country?: string;
+
+    @Exclude()
+    @Column({ type: "character varying", length: 100, nullable: false })
+    password: string;
 
     @CreateDateColumn()
     createdAt?: Date;

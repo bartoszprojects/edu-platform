@@ -6,9 +6,14 @@
 
   </div>
   <div class="top-nav-menu">
+
+    <a routerLinkActive="active-link" routerLink="/login"><mat-icon>login</mat-icon></a>
+    <a routerLinkActive="active-link" routerLink="/learning"><mat-icon>layers</mat-icon></a>
+
     <mat-icon>info</mat-icon>
     <mat-icon>mood</mat-icon>
     <mat-icon>menu</mat-icon>
+
     <a routerLinkActive="active-link" routerLink="/users">people</a>
   </div>
 </div>
@@ -18,23 +23,10 @@
   </div>
   <div id="container">
 
-    <header class="header">
-      <nav class="nav">
-        <ul>
-          <li routerLinkActive="active-link"><a routerLink="/javascript">JAVASCRIPT</a></li>
-          <li routerLinkActive="active-link"><a routerLink="/angular">ANGULAR</a></li>
-          <li routerLinkActive="active-link"><a routerLink="/ngrx">NGRX</a></li>
-          <li routerLinkActive="active-link"><a routerLink="/functions">FUNCTIONS</a></li>
-          <li routerLinkActive="active-link"><a routerLink="/typescript">TYPESCRIPT</a></li>
-          <li routerLinkActive="active-link"><a routerLink="/rxjs">RXJS</a></li>
 
-        </ul>
-      </nav>
-    </header>
 
     <div class="content">
-      <router-outlet>
-      </router-outlet>
+      <router-outlet></router-outlet>
     </div>
 
 
@@ -43,11 +35,11 @@
   </div>
 </div>
 
-<button (click)="incrementNumber()">store incrementNumber</button>
-<button (click)="decrementNumber()">store decrementNumber</button>
-<button (click)="resetNumber()">store resetNumber</button>
-<button (click)="setConstNumb()">store setConstNumb</button>
-<button (click)="setYourNumber()">store setYourNumber</button>
-<input type="text" [(ngModel)]="inputValue">
-<p>count: {{ count$ | async }}</p>
-<button (click)="getSnippets()">getSnippets</button>
+<!--<button (click)="incrementNumber()">store incrementNumber</button>-->
+<!--<button (click)="decrementNumber()">store decrementNumber</button>-->
+<!--<button (click)="resetNumber()">store resetNumber</button>-->
+<!--<button (click)="setConstNumb()">store setConstNumb</button>-->
+<!--<button (click)="setYourNumber()">store setYourNumber</button>-->
+<!--<input type="text" [(ngModel)]="inputValue">-->
+<!--<p>count: {{ count$ | async }}</p>-->
+<!--<button (click)="getSnippets()">getSnippets</button>-->

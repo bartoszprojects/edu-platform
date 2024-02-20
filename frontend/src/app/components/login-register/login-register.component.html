@@ -1,0 +1,8 @@
+<div class="example">
+  <form [formGroup]="loginForm" (ngSubmit)="onsubmit()">>
+    <input type="email" formControlName="userName" placeholder="Enter your userName" required class="bl-def-input">
+    <input type="password" formControlName="password" placeholder="Enter your password" required class="bl-def-input">
+    <button type="submit" [disabled]="loginForm.invalid" >tryLogin()</button>
+  </form>
+</div>
+<router-outlet></router-outlet>
