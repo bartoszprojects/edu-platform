@@ -8,9 +8,17 @@ import {SnippetCategory} from "./modules/snippet.categories/snippet.categories.e
 import {SnippetCategoriesModule} from "./modules/snippet.categories/snippet.categories.module";
 import {User} from "./modules/users/user.entity";
 import {UserModule} from "./modules/users/user.module";
+import {AuthModule} from "./modules/auth/auth.module";
+import {jwtConstants} from "./modules/auth/constants";
+import {JwtModule} from "@nestjs/jwt";
 
 @Module({
   imports: [
+    JwtModule.register({
+      global: true,
+      secret: jwtConstants.secret,
+      signOptions: { expiresIn: '60s' },
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -24,7 +32,8 @@ import {UserModule} from "./modules/users/user.module";
     }),
       SnippetsModule,
       SnippetCategoriesModule,
-      UserModule
+      UserModule,
+      AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

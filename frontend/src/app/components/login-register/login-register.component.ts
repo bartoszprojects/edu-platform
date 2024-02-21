@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {RouterOutlet} from "@angular/router";
+import {AuthService} from "./auth.service";
 
 @Component({
   selector: 'app-login-register',
@@ -16,10 +17,10 @@ import {RouterOutlet} from "@angular/router";
 export class LoginRegisterComponent  implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
     this.loginForm = this.formBuilder.group({
-      userName: ['', [Validators.required, Validators.required]],
-      password: ['', [Validators.required, Validators.required, Validators.minLength(6)]],
+      username: ['', [Validators.required, Validators.required]],
+      password: ['', [Validators.required, Validators.required, Validators.minLength(4)]],
     });
   }
 
@@ -28,7 +29,8 @@ export class LoginRegisterComponent  implements OnInit {
   }
 
   onsubmit() {
-
+    const dataFromLoginForm = this.loginForm.value;
+    this.authService.login(dataFromLoginForm).subscribe((r) => console.log(r))
   }
 
 
