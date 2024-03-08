@@ -10,15 +10,24 @@ import {CreateSnippetCategoryDto} from "./dto/create.snippet.category.dto";
 export class SnippetCategoriesService {
     constructor(
         @InjectRepository(SnippetCategory)
-        private snippetRepository: Repository<SnippetCategory>,
-    ) {}
+        private snippetCategoryRepository: Repository<SnippetCategory>
+    ) {  }
 
-    async getAllSnippets(): Promise<SnippetCategory[]> {
-        return this.snippetRepository.find();
+    async getAllSnippetsCategories(): Promise<SnippetCategory[]> {
+        return this.snippetCategoryRepository.find();
     }
 
-    async saveSnippet(createSnippetCategoryDto: CreateSnippetCategoryDto): Promise<SnippetCategory> {
-        const snippet = this.snippetRepository.create(createSnippetCategoryDto);
-        return this.snippetRepository.save(snippet);
+    async saveSnippetCategory(createSnippetCategoryDto: CreateSnippetCategoryDto): Promise<SnippetCategory> {
+        const snippet: SnippetCategory = this.snippetCategoryRepository.create(createSnippetCategoryDto);
+        return this.snippetCategoryRepository.save(snippet);
+    }
+
+    async getSnippetCategoriesWithUser(userId: number): Promise<Partial<SnippetCategory[]>> {
+        return this.snippetCategoryRepository
+            .createQueryBuilder('category')
+            .leftJoinAndSelect('category.user', 'user')
+            .select(['category.id', 'category.snippet_category', 'category.description'])
+            .where('user.id = :userId', { userId })
+            .getMany();
     }
 }

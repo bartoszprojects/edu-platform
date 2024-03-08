@@ -3,6 +3,7 @@ import {InjectRepository} from "@nestjs/typeorm";
 import {Snippet} from "./snippet.entity";
 import {Repository} from "typeorm";
 import {CreateSnippetDto} from "./dto/create.snippet.dto";
+import {SnippetCategory} from "../../snippet.categories/snippet.categories.entity";
 
 @Injectable()
 export class SnippetsService {
@@ -17,7 +18,7 @@ export class SnippetsService {
 
     async getAllSnippetsWithCategory(categoryId: number): Promise<Snippet[]> {
         return this.snippetRepository.createQueryBuilder('snippet')
-            .leftJoinAndSelect('snippet.category', 'category')
+            .leftJoin('snippet.category', 'category')
             .where('category.id = :categoryId', { categoryId })
             .getMany();
     }

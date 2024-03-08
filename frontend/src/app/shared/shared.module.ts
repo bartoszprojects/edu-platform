@@ -8,14 +8,17 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {
   ConcatmapInteractive1Component
 } from "../learning/rxjs/pipes/concatmap/interactives/concatmap-interactive1/concatmap-interactive1.component";
+import {SnippetTileActiveDirective} from "./directives/snippet-tile-active.directive";
 
 @NgModule({
   declarations: [
     CodeExampleComponent,
-    ConcatmapInteractive1Component
+    ConcatmapInteractive1Component,
+    SnippetTileActiveDirective
   ],
   exports: [
     CodeExampleComponent,
+    SnippetTileActiveDirective,
   ],
   imports: [
     CommonModule,

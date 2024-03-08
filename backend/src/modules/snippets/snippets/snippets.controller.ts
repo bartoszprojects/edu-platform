@@ -22,12 +22,7 @@ export class SnippetsController {
 
     @Post()
     createSnippet(@Body() createSnippetDto: CreateSnippetDto): Promise<Snippet>  | string{
-        try {
-            return this.snippetsService.saveSnippet(createSnippetDto)
+        return this.snippetsService.saveSnippet(createSnippetDto)
 
-        }
-        catch (e) {
-            return 'xxxxxxx'
-        }
     }
 }

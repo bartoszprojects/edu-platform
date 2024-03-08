@@ -19,6 +19,8 @@ import {EffectsModule} from "@ngrx/effects";
 import {UserEffects} from "./store/users/user.effects";
 import {LearningModule} from "./learning/learning.module";
 import {LearningComponent} from "./learning/learning.component";
+import {snippetsCategoriesReducers} from "./store/snippets-categories/snippets-categories.reducers";
+import {SnippetsCategoriesEffects} from "./store/snippets-categories/snippets-categories.effects";
 
 @NgModule({
   declarations: [
@@ -36,8 +38,8 @@ import {LearningComponent} from "./learning/learning.component";
     TypescriptModule,
     FunctionsModule,
     LearningModule,
-    StoreModule.forRoot({count: counterReducer, users: usersReducer}, {}),
-    EffectsModule.forRoot([UserEffects]), // Add your effects class to EffectsModule.forRoot([])
+    StoreModule.forRoot({count: counterReducer, users: usersReducer, snippet_categories: snippetsCategoriesReducers}, {}),
+    EffectsModule.forRoot([UserEffects, SnippetsCategoriesEffects]),
     FormsModule,
     LearningComponent
 

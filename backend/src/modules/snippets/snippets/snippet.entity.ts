@@ -26,7 +26,7 @@ export class Snippet {
     @UpdateDateColumn()
     updatedAt?: Date;
 
-    @ManyToOne(() => SnippetCategory, category => category.snippets)
+    @ManyToOne(() => SnippetCategory, (category: SnippetCategory) => category.snippets)
     category: SnippetCategory;
 
 }

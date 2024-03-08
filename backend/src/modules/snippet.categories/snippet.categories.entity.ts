@@ -5,9 +5,10 @@ import {
     CreateDateColumn,
     DeleteDateColumn,
     UpdateDateColumn,
-    OneToMany
+    OneToMany, ManyToOne
 } from 'typeorm';
 import {Snippet} from "../snippets/snippets/snippet.entity";
+import {User} from "../users/user.entity";
 
 @Entity()
 export class SnippetCategory {
@@ -32,8 +33,10 @@ export class SnippetCategory {
     @UpdateDateColumn()
     updatedAt?: Date;
 
-    @OneToMany(() => Snippet, snippet => snippet.category)
+    @OneToMany(() => Snippet, (snippet: Snippet) => snippet.category)
     snippets: Snippet[];
 
+    @ManyToOne(() => User)
+    user: User
 
 }

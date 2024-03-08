@@ -20,13 +20,11 @@ export class UserService {
     }
 
     async findOneUser(loginUserDTO: LoginUserDTO): Promise<User> {
-
         const { username } = loginUserDTO
         return this.userRepository.findOne({where: {username}})
     }
 
     async saveUser(createUserDto: CreateUserDto): Promise<User> {
-
         createUserDto.password = await this.authService.hashPassword(createUserDto.password)
         const user: User = this.userRepository.create(createUserDto);
         return this.userRepository.save(user);
