@@ -2,22 +2,22 @@ import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, View
 import {AsyncPipe, JsonPipe, NgForOf} from "@angular/common";
 import {MatIconModule} from "@angular/material/icon";
 import {SnippetTileComponent} from "./snippet-tile/snippet-tile.component";
-import {fromEvent, Observable} from "rxjs";
-import {debounceTime, distinctUntilChanged, tap} from "rxjs/operators";
+import {filter, fromEvent, Observable} from "rxjs";
+import {debounceTime, distinctUntilChanged, map, tap} from "rxjs/operators";
 import {SharedModule} from "../../shared/shared.module";
 import {ActivatedRoute} from "@angular/router";
 import {UsersApiService} from "../users/users-api.service";
 import {getSnippetCategory} from "../../shared/interfaces/get.snippets.categories.interface";
 import {Store} from "@ngrx/store";
 import {
-  selectSnippetCategories,
-  selectSnippetCategoriesState
+  selectSnippetCategories
 } from "../../store/snippets-categories/snippets-categories.selectors";
 import {
+  addBulkSnippetsBackend,
   addSnippetCategoryLocalSuccess,
   getSnippetCategoriesStart
 } from "../../store/snippets-categories/snippets-categories.actions";
-import {addSnippetCategoryLocal} from "../../shared/interfaces/add.snippet.category.local.interface";
+
 
 interface Snippet {
   name: string;
@@ -50,16 +50,17 @@ interface SnippetsCategory {
 export class DashboardComponent implements OnInit, AfterViewInit {
   listOfSnippets: SnippetsCategory[] = []
   inputObservable: Observable<string> = new Observable<string>()
+  userId: string | number | null;
 
   snippetsCategories$: Observable<getSnippetCategory[]> = new Observable<getSnippetCategory[]>()
   @ViewChild('listContainer') listContainer!: ElementRef;
   @ViewChild('snippetInput') snippetInput!: ElementRef;
-  @ViewChild("scrollElement") scrollElement!: ElementRef;
-  @ViewChildren("commentDiv") commentDivs!: QueryList<ElementRef>;
+
   constructor(private route: ActivatedRoute, private userService: UsersApiService, private store: Store) {
-    const userId: string | null = this.route.snapshot.paramMap.get('userId');
-    if (userId)
-      this.store.dispatch(getSnippetCategoriesStart(userId))
+    this.userId = this.route.snapshot.paramMap.get('userId');
+
+    if (this.userId)
+      this.store.dispatch(getSnippetCategoriesStart(this.userId))
   }
 
 
@@ -90,6 +91,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       const scrollWidth = container.scrollWidth - container.clientWidth;
       container.scrollTo({ left: scrollWidth, behavior: 'smooth' });
     }
+  }
+
+  bulkSaveSnippets(): void {
+    this.store.dispatch(addBulkSnippetsBackend(this.userId))
+
   }
 
 

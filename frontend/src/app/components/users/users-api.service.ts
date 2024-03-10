@@ -17,9 +17,14 @@ export class UsersApiService {
   }
 
   getAllSnippetsCategoriesFromUser(userId: string | number): Observable<getSnippetCategory[]> {
-    console.log('gfaggfaddgfdagfdagfdaa')
     return this.http.get<getSnippetCategory[]>('http://localhost:3000/snippets-categories/user/' + userId)
   }
+
+  addSnippetsCategoriesBackend(snippet_categories?: getSnippetCategory[] ): Observable<getSnippetCategory[]> {
+    return this.http.post<getSnippetCategory[]>('http://localhost:3000/snippets-categories/bulk/', snippet_categories)
+
+  }
+
 
   addUser(): Observable<User> {
     const payload = {

@@ -1,9 +1,12 @@
-<div [style.background-color]="!isLocal ? '#eecdab' : '#e6e1dc'" style="padding: 15px 20px; margin: 15px; border-radius: 15px">
+<div [style.background-color]="!isLocal ? '#eecdab' : '#e6e1dc'" style="padding: 10px 10px; margin: 5px; border-radius: 15px">
   <div style="text-align: center">
     <p style="background: #ffffff5e;
   border-radius: 5px;
   padding: 4px;
-  color: #566b86;">{{ parentData }}</p>
+  color: #566b86;  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px; /* Set the maximum width */">{{ parentData }}</p>
   </div>
   <div>
     <mat-icon style="color: #72829b;

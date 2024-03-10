@@ -21,9 +21,6 @@ export const getSnippetCategoriesFailure = createAction(
 );
 
 // ADD SINGLE SNIPPET - LOCAL
-
-
-
 export const ADD_SNIPPET_CATEGORY_LOCAL_START = "[SNIPPET_CATEGORIES] ADD_SNIPPET_CATEGORY_LOCAL_START";
 export const addSnippetCategoryLocalStart = createAction(
   ADD_SNIPPET_CATEGORY_LOCAL_START);
@@ -36,6 +33,24 @@ export const addSnippetCategoryLocalSuccess = createAction(
 export const ADD_SNIPPET_CATEGORY_LOCAL_FAILURE = "[SNIPPET_CATEGORIES] ADD_SNIPPET_CATEGORY_LOCAL_FAILURE";
 export const addSnippetCategoryLocalFailure = createAction(
   ADD_SNIPPET_CATEGORY_LOCAL_FAILURE,
+  (error: any) => ({ error }));
+
+
+
+
+// ADD BULK SNIPPETS - BACKEND
+export const ADD_BULK_SNIPPETS_BACKEND = "[SNIPPET_CATEGORIES] ADD_BULK_SNIPPETS_BACKEND";
+export const addBulkSnippetsBackend = createAction(
+  ADD_BULK_SNIPPETS_BACKEND,
+  (userId: string | number | null) => ({ userId }));
+
+
+export const ADD_BULK_SNIPPETS_BACKEND_SUCCESS = "[SNIPPET_CATEGORIES] ADD_BULK_SNIPPETS_BACKEND_SUCCESS";
+export const addBulkSnippetsBackendSuccess = createAction(
+  ADD_BULK_SNIPPETS_BACKEND_SUCCESS)
+export const ADD_BULK_SNIPPETS_BACKEND_FAILURE = "[SNIPPET_CATEGORIES] ADD_BULK_SNIPPETS_BACKEND_FAILURE";
+export const addBulkSnippetsBackendFailure = createAction(
+  ADD_BULK_SNIPPETS_BACKEND_FAILURE,
   (error: any) => ({ error }));
 
 

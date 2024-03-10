@@ -2,7 +2,11 @@ import {createReducer, on} from "@ngrx/store";
 import * as actions from "./snippets-categories.actions";
 import {initialSnippetsCategoryState, SnippetsCategoryState} from "./snippets-categories.state";
 import {UsersState} from "../users/user.state";
-import {addSnippetCategoryLocalStart, addSnippetCategoryLocalSuccess} from "./snippets-categories.actions";
+import {
+  addBulkSnippetsBackendSuccess,
+  addSnippetCategoryLocalStart,
+  addSnippetCategoryLocalSuccess
+} from "./snippets-categories.actions";
 
 
 export const snippetsCategoriesReducers = createReducer(
@@ -38,5 +42,12 @@ export const snippetsCategoriesReducers = createReducer(
       isLoading: false,
     snippet_categories: [...state.snippet_categories, snippet_category]
     })),
+
+
+  // on(actions.addBulkSnippetsBackendSuccess, (state: SnippetsCategoryState, { snippet_categories }): SnippetsCategoryState => ({
+  //   ...state,
+  //   isLoading: false,
+  //   snippet_categories: [...state.snippet_categories, ...snippet_categories]
+  // })),
 
 )

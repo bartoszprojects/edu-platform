@@ -10,3 +10,9 @@ export const selectSnippetCategories = createSelector(
   selectSnippetCategoriesState,
   (state) => state.snippet_categories
 );
+
+
+export const selectSnippetCategories2 = createSelector(
+  selectSnippetCategoriesState,
+  (state) => state.snippet_categories
+);
