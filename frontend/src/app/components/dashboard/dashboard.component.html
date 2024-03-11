@@ -1,7 +1,17 @@
 <div class="example">
   <mat-icon (click)="bulkSaveSnippets()">save</mat-icon>
   <ul class="bl-def-ul" #listContainer style="overflow: scroll">
-    <li tabindex="1" *ngFor="let snippetCategory of snippetsCategories$ | async" style="min-width: 150px">
+    <li (click)="addSubCategories(snippetCategory)" tabindex="1" *ngFor="let snippetCategory of snippetsCategories$ | async" style="min-width: 150px">
+      <app-snippet-tile [isLocal]="snippetCategory?.id !== undefined"
+                        [parentData]="snippetCategory?.snippet_category"></app-snippet-tile>
+    </li>
+    <div style="display: flex; align-items: center">
+      <input #snippetInput placeholder="type your Snippet .." class="bl-def-input" />
+    </div>
+  </ul>
+
+  <ul class="bl-def-ul" #listContainer style="overflow: scroll">
+    <li (click)="addSubCategories(snippetCategory)" tabindex="1" *ngFor="let snippetCategory of snippetsCategories$ | async" style="min-width: 150px">
       <app-snippet-tile [isLocal]="snippetCategory?.id !== undefined"
                         [parentData]="snippetCategory?.snippet_category"></app-snippet-tile>
     </li>

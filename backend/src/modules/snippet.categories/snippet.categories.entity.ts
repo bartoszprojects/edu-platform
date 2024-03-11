@@ -18,11 +18,11 @@ export class SnippetCategory {
     @Column()
     snippet_category: string;
 
-    @Column()
-    description: string;
+    @Column({ nullable: true })
+    description?: string;
 
-    @Column()
-    category_level: number;
+    @Column({ nullable: true })
+    category_level?: number;
 
     @CreateDateColumn()
     createdAt?: Date;
@@ -38,5 +38,8 @@ export class SnippetCategory {
 
     @ManyToOne(() => User)
     user: User
+
+    @ManyToOne(() => SnippetCategory, { nullable: true }) // Nullable because the parent category may be null for top-level categories
+    parentCategory: SnippetCategory;
 
 }

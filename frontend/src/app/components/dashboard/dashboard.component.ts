@@ -53,6 +53,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   userId: string | number | null;
 
   snippetsCategories$: Observable<getSnippetCategory[]> = new Observable<getSnippetCategory[]>()
+  snippetsSubCategories$: Observable<getSnippetCategory[]> = new Observable<getSnippetCategory[]>()
+
   @ViewChild('listContainer') listContainer!: ElementRef;
   @ViewChild('snippetInput') snippetInput!: ElementRef;
 
@@ -96,6 +98,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   bulkSaveSnippets(): void {
     this.store.dispatch(addBulkSnippetsBackend(this.userId))
 
+  }
+
+  addSubCategories(data: any): void{
+    this.userService.getAllSnippetsCategoriesFromUserAndParentCategory(105,149).subscribe()
   }
 
 
